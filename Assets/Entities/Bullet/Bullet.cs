@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour {
         rigidBody.velocity = transform.up * Speed;
 
         yield return new WaitForSeconds(Lifetime);
+
+        Destroy(transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
