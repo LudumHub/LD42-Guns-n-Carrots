@@ -98,6 +98,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public IEnumerable<Item> AllItems
+    {
+        get { return AllSlots.Select(s => s.Item).Distinct(); }
+    }
+
     private void Slot_PointerExit()
     {
         hoveredSlot = null;

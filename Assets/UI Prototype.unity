@@ -2621,7 +2621,7 @@ MonoBehaviour:
   gameInterface: {fileID: 519267548}
   itemTemplates:
   - {fileID: 1976304081415196, guid: 085c5c78c5a07044fadd5e4e2a326b54, type: 2}
-  - {fileID: 1821641795119294, guid: 0f33457d9697cc749b33f2ac9b91a707, type: 2}
+  - {fileID: 1284624347829204, guid: 0f33457d9697cc749b33f2ac9b91a707, type: 2}
 --- !u!4 &1693151981
 Transform:
   m_ObjectHideFlags: 0
