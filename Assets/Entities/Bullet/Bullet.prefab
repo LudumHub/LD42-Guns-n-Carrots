@@ -135,7 +135,7 @@ TrailRenderer:
   m_Time: 0.7
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.11
+    widthMultiplier: 0.18
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -204,6 +204,7 @@ MonoBehaviour:
   Damage: 1
   Speed: 3
   Lifetime: 5
+  spriteRenderer: {fileID: 212567506927324820}
 --- !u!212 &212567506927324820
 SpriteRenderer:
   m_ObjectHideFlags: 1

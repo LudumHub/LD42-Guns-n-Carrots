@@ -2,11 +2,12 @@
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-    public int Damage = 1;
+    public float Damage = 1;
     public float Speed = 3f;
     public float Lifetime = 5f;
 
     Rigidbody2D rigidBody;
+    public SpriteRenderer spriteRenderer;
 
     private IEnumerator Start()
     {
@@ -24,6 +25,6 @@ public class Bullet : MonoBehaviour {
 
         collision.SendMessage("Hit", this);
         rigidBody.velocity = Vector2.zero;
-        GetComponent<SpriteRenderer>().enabled = false;
+        spriteRenderer.enabled = false;
     }
 }

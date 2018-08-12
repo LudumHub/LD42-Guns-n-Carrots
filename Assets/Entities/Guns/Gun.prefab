@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114207747992821854}
   - component: {fileID: 95318780764655142}
   m_Layer: 0
-  m_Name: HighNoon
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,3 +74,7 @@ MonoBehaviour:
   GunAnimator: {fileID: 95318780764655142}
   GunfireAnimationName: HighNoon
   Cooldown: 3
+  MaxBulletSize: 2
+  RifleBulletDamage: 10
+  ShotgunBulletDamage: 4
+  RevolverBulletDamage: 0.5
