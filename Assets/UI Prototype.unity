@@ -708,6 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dpsGoal: 10
   visuals: {fileID: 1015055379}
+  SkipToThis: 0
 --- !u!1 &262677149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,11 +1977,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4143806184672758, guid: 47fc37a5e74951749b270bd394e16b64, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.621
+      value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 4143806184672758, guid: 47fc37a5e74951749b270bd394e16b64, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.792
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4143806184672758, guid: 47fc37a5e74951749b270bd394e16b64, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2525,7 +2526,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 281.64, y: 273.56}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1010985994
 MonoBehaviour:
@@ -3217,7 +3218,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4213926122904350, guid: 6c2cbbe10250f3d44ab4da9282aa92f0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: 0.298
       objectReference: {fileID: 0}
     - target: {fileID: 4213926122904350, guid: 6c2cbbe10250f3d44ab4da9282aa92f0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3246,6 +3247,11 @@ Prefab:
     - target: {fileID: 4213926122904350, guid: 6c2cbbe10250f3d44ab4da9282aa92f0, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212317634771690686, guid: 6c2cbbe10250f3d44ab4da9282aa92f0,
+        type: 2}
+      propertyPath: m_Size.x
+      value: -3.6526973
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c2cbbe10250f3d44ab4da9282aa92f0, type: 2}
@@ -3875,6 +3881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dpsGoal: 10
   visuals: {fileID: 1822596708}
+  SkipToThis: 0
 --- !u!1 &1902132986
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,8 +4102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f564868c3df24e818ca6ff9b5e8ba61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dpsGoal: 1
+  dpsGoal: 10
   visuals: {fileID: 2115966380}
+  SkipToThis: 0
 --- !u!4 &1968786488
 Transform:
   m_ObjectHideFlags: 0

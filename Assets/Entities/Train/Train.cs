@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,17 +22,28 @@ public class Train : MonoBehaviour
         {
             wagons.Enqueue(wagon);
         }
-
-        RegisterNextWagon();
     }
 
     private void Start()
     {
+        if (wagons.Any(w => w.SkipToThis))
+        {
+            var wagonsSkipped = 0;
+            while (!wagons.Peek().SkipToThis)
+            {
+                var wagon = wagons.Dequeue();
+                Destroy(wagon.gameObject);
+                wagonsSkipped++;
+            }
+            transform.position = transform.position - new Vector3(0, wagonsSkipped * wagonLength, 0);
+        }
+        RegisterNextWagon();
         dps.text = string.Empty;
     }
 
     private void RegisterNextWagon()
     {
+        UnregisterCurrentWagon();
         currentWagon = wagons.Dequeue();
         currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
         currentWagon.ItemSpawnThresholdReached += CurrentWagon_ItemSpawnThresholdReached;

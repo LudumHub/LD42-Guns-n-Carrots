@@ -10,6 +10,8 @@ public class Wagon: MonoBehaviour
     [SerializeField] private float dpsGoal = 5;
     [SerializeField] private Animator visuals;
 
+    public bool SkipToThis;
+
     private readonly DpsCounter dpsCounter = new DpsCounter();
     private List<Wall> walls = new List<Wall>();
 
