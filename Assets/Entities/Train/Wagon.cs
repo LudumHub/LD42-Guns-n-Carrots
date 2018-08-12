@@ -42,7 +42,10 @@ public class Wagon: MonoBehaviour
                 DpsGoalReached();
         }
 
-        if (Random.value > 0.5f)
+        const float maxItemsOnScreen = 5;
+        var currentItemsOnScreen = FindObjectsOfType<WorldItemView>().Length;
+        var spawnChance = 1 - 1 / maxItemsOnScreen * currentItemsOnScreen;
+        if (Random.value < spawnChance)
         {
             var template = droppedItems[new System.Random().Next(droppedItems.Length)];
             var item = new Item(template);
