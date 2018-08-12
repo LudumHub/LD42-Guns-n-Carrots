@@ -2719,8 +2719,10 @@ MonoBehaviour:
     type: 2}
   gameInterface: {fileID: 519267548}
   itemTemplates:
-  - {fileID: 1976304081415196, guid: 085c5c78c5a07044fadd5e4e2a326b54, type: 2}
+  - {fileID: 1284624347829204, guid: b4070a0db2eb1bb4f8a54e3f79ceee25, type: 2}
   - {fileID: 1284624347829204, guid: 0f33457d9697cc749b33f2ac9b91a707, type: 2}
+  - {fileID: 1976304081415196, guid: d910e2490008a2e46af5d7793a063dbf, type: 2}
+  - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
 --- !u!4 &1693151981
 Transform:
   m_ObjectHideFlags: 0

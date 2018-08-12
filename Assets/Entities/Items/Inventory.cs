@@ -118,7 +118,7 @@ public class Inventory : MonoBehaviour
     private void Slot_PointerDown()
     {
         if (DraggedItem != null) return;
-        if (hoveredSlot.Item == null) return;
+        if (hoveredSlot == null || hoveredSlot.Item == null) return;
         DraggedItem = hoveredSlot.Item;
         hoveredSlot.ItemView.StartDragging();
         foreach (var slot in FindSlots(hoveredSlot.Item))
