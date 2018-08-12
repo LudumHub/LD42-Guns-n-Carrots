@@ -46,14 +46,14 @@ public class Train : MonoBehaviour
         UnregisterCurrentWagon();
         currentWagon = wagons.Dequeue();
         currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
-        currentWagon.ItemSpawnThresholdReached += CurrentWagon_ItemSpawnThresholdReached;
+        currentWagon.ItemCreated += CurrentWagon_ItemCreated;
     }
 
-    private void CurrentWagon_ItemSpawnThresholdReached(Vector3 position)
+    private void CurrentWagon_ItemCreated(Item item, Vector3 position)
     {
         var spawnPosition = position;
         spawnPosition.z = transform.position.z;
-        itemSpawner.SpawnItem(spawnPosition);
+        itemSpawner.SpawnItem(item, spawnPosition);
     }
 
     private void CurrentWagon_DpsGoalReached()
@@ -85,7 +85,7 @@ public class Train : MonoBehaviour
         if (currentWagon != null)
         {
             currentWagon.DpsGoalReached -= CurrentWagon_DpsGoalReached;
-            currentWagon.ItemSpawnThresholdReached -= CurrentWagon_ItemSpawnThresholdReached;
+            currentWagon.ItemCreated -= CurrentWagon_ItemCreated;
         }
     }
 

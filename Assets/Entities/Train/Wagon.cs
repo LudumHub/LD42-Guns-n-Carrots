@@ -9,6 +9,7 @@ public class Wagon: MonoBehaviour
 {
     [SerializeField] private float dpsGoal = 5;
     [SerializeField] private Animator visuals;
+    [SerializeField] private GameObject[] droppedItems;
 
     public bool SkipToThis;
 
@@ -16,7 +17,7 @@ public class Wagon: MonoBehaviour
     private List<Wall> walls = new List<Wall>();
 
     public event Action DpsGoalReached;
-    public event Action<Vector3> ItemSpawnThresholdReached;
+    public event Action<Item, Vector3> ItemCreated;
 
     private void Awake()
     {
@@ -41,10 +42,12 @@ public class Wagon: MonoBehaviour
                 DpsGoalReached();
         }
 
-        if (Random.value > 0f)
+        if (Random.value > 0.5f)
         {
-            if (ItemSpawnThresholdReached != null)
-                ItemSpawnThresholdReached(position);
+            var template = droppedItems[new System.Random().Next(droppedItems.Length)];
+            var item = new Item(template);
+            if (ItemCreated != null)
+                ItemCreated(item, position);
         }
     }
 

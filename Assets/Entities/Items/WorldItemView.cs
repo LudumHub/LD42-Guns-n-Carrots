@@ -9,7 +9,7 @@ public class WorldItemView : MonoBehaviour
     private void Start()
     {
         Item = Item ?? new Item(InventoryTemplate);
-        var hitboxGo = new GameObject("Hitbox");
+        var hitboxGo = new GameObject("Sprite");
         hitboxGo.transform.SetParent(transform, false);
         hitboxGo.layer = LayerMask.NameToLayer("RoadItems");
         var viewSprite = hitboxGo.AddComponent<WorldItemViewSprite>();

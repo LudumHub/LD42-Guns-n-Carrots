@@ -30,7 +30,7 @@ public class WorldItemViewSprite : MonoBehaviour
         var top = positions.Min(p => p.y);
         var bottom = positions.Max(p => p.y);
         const float sizeStep = 0.35f;
-        return new Vector2(right - left, bottom - top) * sizeStep;
+        return new Vector2(right - left + 1, bottom - top + 1) * sizeStep;
     }
 
     private static Vector2 Rotate(Vector2 vector)

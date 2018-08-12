@@ -6,7 +6,11 @@ public class ItemSpawner: MonoBehaviour
 
     public void SpawnItem(Vector3 position)
     {
-        var item = itemFactory.CreateRandomItem();
+        SpawnItem(itemFactory.CreateRandomItem(), position);
+    }
+
+    public void SpawnItem(Item item, Vector3 position)
+    {
         var worldItem = itemFactory.CreateWorldItem(item);
         worldItem.transform.SetParent(transform.parent.parent);
         var randomOffset = (Vector3) Random.insideUnitCircle;
