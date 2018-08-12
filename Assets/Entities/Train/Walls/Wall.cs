@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    [SerializeField] private GameObject hitParticle;
+
     public float DamageScale = 1;
     public FloatingNumber TextPrefab;
     public event Action<float, Vector3> DamageReceived;
@@ -13,6 +15,11 @@ public class Wall : MonoBehaviour
 
         if (DamageReceived != null)
             DamageReceived(damage, bullet.transform.position);
+
+        if (hitParticle != null && damage > 1f)
+        {
+            Instantiate(hitParticle, bullet.transform.position, Quaternion.identity);
+        }
 
         if (TextPrefab != null)
         {

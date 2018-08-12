@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bc2189878c2f74eb6d7997c0ef9a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticle: {fileID: 1244772845452276, guid: 74a647df680f66142802dd7b0b7aec42,
+    type: 2}
   DamageScale: 1
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}

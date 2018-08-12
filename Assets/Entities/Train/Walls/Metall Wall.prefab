@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685838969754888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -1.395, z: -1}
+  m_LocalPosition: {x: -0.6548548, y: 2.4528227, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.65, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 1.74, y: 0.45, z: 0.53, w: 0.45}
+    border: {x: 1.76, y: 0.51, z: 0.53, w: 0.48}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.43, y: 1.2}
     newSize: {x: -4.4060388, y: 5.588123}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bc2189878c2f74eb6d7997c0ef9a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticle: {fileID: 1171569697894756, guid: 0f39222b5d2c133429c688fd803b1247,
+    type: 2}
   DamageScale: 0.5
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
