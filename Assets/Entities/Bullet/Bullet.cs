@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
@@ -16,12 +15,12 @@ public class Bullet : MonoBehaviour {
 
         yield return new WaitForSeconds(Lifetime);
 
-        Destroy(transform);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "bulletUnpassable") return;
+        if (!collision.CompareTag("bulletUnpassable")) return;
 
         collision.SendMessage("Hit", Damage);
         rigidBody.velocity = Vector2.zero;

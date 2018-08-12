@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun : MonoBehaviour {
     public Bullet BulletPrefab;
@@ -8,7 +6,7 @@ public class Gun : MonoBehaviour {
     public string GunfireAnimationName = "Rifle";
     public float Cooldown = 3f;
 
-    float timer = 0f;
+    float timer;
 
     private void Update()
     {
@@ -22,7 +20,7 @@ public class Gun : MonoBehaviour {
 
     public void Shoot()
     {
-        Instantiate<Transform>(BulletPrefab.transform, transform.position, transform.rotation);
+        Instantiate(BulletPrefab.transform, transform.position, transform.rotation);
 
     }
 }

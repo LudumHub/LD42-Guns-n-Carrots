@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Train : MonoBehaviour {
-    public float DPS = 0f;
+public class Train : MonoBehaviour
+{
+    [SerializeField] private ItemSpawner itemSpawner;
+
+    public float Speed = 1;
+    public float DPS;
     public float RecalculationTimer = 3f;
     public TextMesh DPSLabel;
 
-    float damageRecieved = 0;
-    float timer = 0;
+    float damageRecieved;
+    float timer;
 
     private void Update()
     {
@@ -26,5 +28,7 @@ public class Train : MonoBehaviour {
     public void Hit(int damage)
     {
         damageRecieved += damage;
+        if(Random.value > 0.8f)
+            itemSpawner.SpawnItem();
     }
 }
