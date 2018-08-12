@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
     {
         if (!collision.CompareTag("bulletUnpassable")) return;
 
-        collision.SendMessage("Hit", Damage);
+        collision.SendMessage("Hit", this);
         rigidBody.velocity = Vector2.zero;
         GetComponent<SpriteRenderer>().enabled = false;
     }
