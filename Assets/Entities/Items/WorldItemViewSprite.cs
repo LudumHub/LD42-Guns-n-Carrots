@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class WorldItemViewSprite : MonoBehaviour
 {
-    public event Action MouseDown;
-
     public void Assign(Item item)
     {
         var image = item.InventoryViewTemplate.GetComponent<Image>();
@@ -38,10 +36,5 @@ public class WorldItemViewSprite : MonoBehaviour
     private static Vector2 Rotate(Vector2 vector)
     {
         return new Vector2(vector.y, vector.x);
-    }
-
-    private void OnMouseDown()
-    {
-        if (MouseDown != null) MouseDown();
     }
 }
