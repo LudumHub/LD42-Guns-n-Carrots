@@ -8,7 +8,7 @@ public class ItemSpawner: MonoBehaviour
     {
         var item = itemFactory.CreateRandomItem();
         var worldItem = itemFactory.CreateWorldItem(item);
-        worldItem.transform.SetParent(transform.parent);
+        worldItem.transform.SetParent(transform.parent.parent);
         var randomOffset = (Vector3) Random.insideUnitCircle;
         worldItem.transform.position = position + randomOffset;
         worldItem.gameObject.AddComponent<ParabolicFlyMotion>();

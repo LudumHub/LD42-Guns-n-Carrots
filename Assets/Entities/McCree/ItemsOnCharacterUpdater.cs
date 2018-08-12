@@ -10,6 +10,14 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
 
     Dictionary<Item, Transform> items = new Dictionary<Item, Transform>();
 
+    private void Awake()
+    {
+        foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.sortingLayerName = "Player";
+        }
+    }
+
     public void UpdateItemsList(IEnumerable<Item> allItems)
     {
         List<Item> usedItems = new List<Item>();

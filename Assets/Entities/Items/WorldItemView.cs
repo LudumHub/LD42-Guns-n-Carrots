@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class WorldItemView : MonoBehaviour
 {
-    [SerializeField] private Image itemImage;
-
     public GameObject InventoryTemplate;
 
     public Item Item { get; set; }
@@ -12,7 +9,13 @@ public class WorldItemView : MonoBehaviour
     private void Start()
     {
         Item = Item ?? new Item(InventoryTemplate);
-        itemImage.sprite = Item.InventoryViewTemplate.GetComponent<Image>().sprite;
+        var hitboxGo = new GameObject("Hitbox");
+        hitboxGo.transform.SetParent(transform, false);
+        hitboxGo.layer = LayerMask.NameToLayer("RoadItems");
+        var viewSprite = hitboxGo.AddComponent<WorldItemViewSprite>();
+        viewSprite.Assign(Item);
+        var box = gameObject.AddComponent<BoxCollider2D>();
+        box.size = viewSprite.GetComponent<SpriteRenderer>().size + Vector2.one * 0.1f;
     }
 
     private void OnMouseDown()

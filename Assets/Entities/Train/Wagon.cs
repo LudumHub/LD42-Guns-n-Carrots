@@ -41,7 +41,7 @@ public class Wagon: MonoBehaviour
                 DpsGoalReached();
         }
 
-        if (Random.value > 0.8f)
+        if (Random.value > 0f)
         {
             if (ItemSpawnThresholdReached != null)
                 ItemSpawnThresholdReached(position);
