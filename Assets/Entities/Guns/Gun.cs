@@ -17,10 +17,13 @@ public class Gun : MonoBehaviour {
     {
         timer += Time.deltaTime;
         if (timer < Cooldown) return;
-
-        timer = 0;
-
         GunAnimator.Play(GunfireAnimationName);
+        ResetCooldown();
+    }
+
+    public void ResetCooldown()
+    {
+        timer = 0;
     }
 
     public void Shoot()
