@@ -31,8 +31,8 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
         foreach (var item in items.Where(kvp => !usedItems.Contains(kvp.Key)).ToList())
             RemoveGun(item.Key);
 
-        characterMovment.carrots = items
-            .Where(kvp => kvp.Key.ItemTag == "Carrot")
+        characterMovment.Carrots = allItems
+            .Where(kvp => kvp.ItemTag == "Carrot")
             .Count();
     }
 
