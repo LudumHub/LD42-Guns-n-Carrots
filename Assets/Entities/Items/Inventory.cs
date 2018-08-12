@@ -100,7 +100,13 @@ public class Inventory : MonoBehaviour
 
     public IEnumerable<Item> AllItems
     {
-        get { return AllSlots.Select(s => s.Item).Distinct(); }
+        get
+        {
+            return AllSlots
+                .Where(s => s.Item != null)
+                .Select(s => s.Item)
+                .Distinct();
+        }
     }
 
     private void Slot_PointerExit()
