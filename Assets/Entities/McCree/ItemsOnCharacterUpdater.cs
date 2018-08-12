@@ -8,7 +8,7 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
     public Gun GunPrefub;
     public CharacterMovment characterMovment;
 
-    Dictionary<Item, Transform> items = new Dictionary<Item, Transform>();
+    public Dictionary<Item, Transform> items = new Dictionary<Item, Transform>();
 
     private void Awake()
     {
