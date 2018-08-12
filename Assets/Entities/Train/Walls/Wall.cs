@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class Wall : MonoBehaviour {
+public class Wall : MonoBehaviour
+{
     public float DamageScale = 1;
-    public FloatingNumber textPrefub; 
+    public FloatingNumber TextPrefab;
+    public event Action<float, Vector3> DamageReceived;
 
-    public void Hit(Bullet bulletScript)
+    public void Hit(Bullet bullet)
     {
-        var damage = bulletScript.Damage * DamageScale;
+        var damage = bullet.Damage * DamageScale;
 
-        GetComponentInParent<Train>().RecievedDamage(damage, bulletScript.transform.position);
+        if (DamageReceived != null)
+            DamageReceived(damage, bullet.transform.position);
 
-        if (textPrefub != null)
+        if (TextPrefab != null)
         {
-            var label = Instantiate(textPrefub, bulletScript.transform.position, Quaternion.identity);
+            var label = Instantiate(TextPrefab, bullet.transform.position, Quaternion.identity);
             label.textMesh.text = "- " + damage;
 
             if (DamageScale < 1) label.textMesh.color = Color.gray;

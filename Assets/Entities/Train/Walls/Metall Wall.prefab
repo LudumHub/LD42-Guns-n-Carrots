@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageScale: 0.5
-  textPrefub: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
+  TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
 --- !u!212 &212317634771690686
 SpriteRenderer:

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Train : MonoBehaviour
@@ -6,39 +7,57 @@ public class Train : MonoBehaviour
     [SerializeField] private ItemSpawner itemSpawner;
     [SerializeField] private Text dps;
 
-    public float Speed = 1;
-    public float DPS;
-    public float RecalculationTimer = 3f;
+    private readonly Queue<Wagon> wagons = new Queue<Wagon>();
+    private Wagon currentWagon;
 
-    float damageRecieved;
-    float timer;
+    public float Speed = 1;
+
+    private void Awake()
+    {
+        foreach (var wagon in GetComponentsInChildren<Wagon>())
+        {
+            wagons.Enqueue(wagon);
+        }
+
+        RegisterNextWagon();
+    }
 
     private void Start()
     {
-        dps.text = DPS + "/5";
+        dps.text = string.Empty;
+    }
+
+    private void RegisterNextWagon()
+    {
+        if (currentWagon != null)
+        {
+            currentWagon.DpsGoalReached -= CurrentWagon_DpsGoalReached;
+            currentWagon.ItemSpawnThresholdReached -= CurrentWagon_ItemSpawnThresholdReached;
+        }
+        currentWagon = wagons.Dequeue();
+        currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
+        currentWagon.ItemSpawnThresholdReached += CurrentWagon_ItemSpawnThresholdReached;
+    }
+
+    private void CurrentWagon_ItemSpawnThresholdReached(Vector3 position)
+    {
+        var spawnPosition = position;
+        spawnPosition.z = transform.position.z;
+        itemSpawner.SpawnItem(spawnPosition);
+    }
+
+    private void CurrentWagon_DpsGoalReached()
+    {
+        // TODO
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer < RecalculationTimer) return;
-
-        DPS = damageRecieved / timer;
-
-        timer = 0;
-        damageRecieved = 0;
-
-        dps.text = DPS + "/5";
+        dps.text = FormatDps(currentWagon.Dps) + "/" + FormatDps(currentWagon.DpsGoal);
     }
 
-    public void RecievedDamage(float damage, Vector3 position)
+    private string FormatDps(float value)
     {
-        damageRecieved += damage;
-        if (Random.value > 0.8f)
-        {
-            var spawnPosition = position;
-            spawnPosition.z = transform.position.z;
-            itemSpawner.SpawnItem(spawnPosition);
-        }
+        return value.ToString("F1");
     }
 }
