@@ -9,7 +9,8 @@ public class Wall : MonoBehaviour {
     public void Hit(Bullet bulletScript)
     {
         var damage = bulletScript.Damage * DamageScale;
-        Train.instance.RecievedDamage(damage, bulletScript.transform.position);
+
+        GetComponentInParent<Train>().RecievedDamage(damage, bulletScript.transform.position);
 
         if (textPrefub != null)
         {

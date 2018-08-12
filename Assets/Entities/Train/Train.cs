@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Train : MonoBehaviour
 {
     [SerializeField] private ItemSpawner itemSpawner;
-
-    public static Train instance;
+    [SerializeField] private Text dps;
 
     public float Speed = 1;
     public float DPS;
     public float RecalculationTimer = 3f;
-    public TextMesh DPSLabel;
 
     float damageRecieved;
     float timer;
 
-    private void Awake()
+    private void Start()
     {
-        instance = this;
+        dps.text = DPS + "/5";
     }
 
     private void Update()
@@ -29,7 +28,7 @@ public class Train : MonoBehaviour
         timer = 0;
         damageRecieved = 0;
 
-        DPSLabel.text = "DPS: " + DPS + "/5";
+        dps.text = DPS + "/5";
     }
 
     public void RecievedDamage(float damage, Vector3 position)
@@ -37,9 +36,9 @@ public class Train : MonoBehaviour
         damageRecieved += damage;
         if (Random.value > 0.8f)
         {
-            itemSpawner.transform.position = 
-                new Vector3(position.x, position.y, transform.position.z);
-            itemSpawner.SpawnItem();
+            var spawnPosition = position;
+            spawnPosition.z = transform.position.z;
+            itemSpawner.SpawnItem(spawnPosition);
         }
     }
 }
