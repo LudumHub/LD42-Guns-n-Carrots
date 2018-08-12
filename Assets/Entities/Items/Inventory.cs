@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     private const int Rows = 5;
 
     public Item DraggedItem { get; set; }
+    public ItemsOnCharacterUpdater GunsInHandsUpdater;
 
     private void Awake()
     {
@@ -135,6 +136,8 @@ public class Inventory : MonoBehaviour
         {
             DraggedItem = null;
             ResetHighlight();
+
+            GunsInHandsUpdater.UpdateItemsList(AllItems);
             return false;
         }
         itemView.transform.position = hoveredSlot.transform.position;
@@ -144,6 +147,7 @@ public class Inventory : MonoBehaviour
             slot.ItemView = itemView;
         }
 
+        GunsInHandsUpdater.UpdateItemsList(AllItems);
         DraggedItem = null;
         return true;
     }

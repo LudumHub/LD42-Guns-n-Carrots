@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114883800814123028}
   m_Layer: 5
   m_Name: Revolver H
-  m_TagString: Untagged
+  m_TagString: HighNoon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
