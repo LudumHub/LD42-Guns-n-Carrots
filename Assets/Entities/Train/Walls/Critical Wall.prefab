@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114267609044226250}
   - component: {fileID: 61456554622221326}
   - component: {fileID: 50736354134908960}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Critical Wall
   m_TagString: bulletUnpassable
   m_Icon: {fileID: 0}

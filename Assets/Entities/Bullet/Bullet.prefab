@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 96732990432055466}
   - component: {fileID: 114681542643082612}
   - component: {fileID: 95806348682295724}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +205,7 @@ MonoBehaviour:
   Speed: 6
   Lifetime: 5
   spriteRenderer: {fileID: 212567506927324820}
+  isRifle: 0
 --- !u!212 &212567506927324820
 SpriteRenderer:
   m_ObjectHideFlags: 1

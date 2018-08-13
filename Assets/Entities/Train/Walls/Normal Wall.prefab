@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114549309324419476}
   - component: {fileID: 61584691334356188}
   - component: {fileID: 50365709030827118}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Normal Wall
   m_TagString: bulletUnpassable
   m_Icon: {fileID: 0}

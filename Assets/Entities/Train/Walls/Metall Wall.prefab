@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114129369673628150}
   - component: {fileID: 61165437656113164}
   - component: {fileID: 50956153219230574}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Metall Wall
   m_TagString: Mirror
   m_Icon: {fileID: 0}
