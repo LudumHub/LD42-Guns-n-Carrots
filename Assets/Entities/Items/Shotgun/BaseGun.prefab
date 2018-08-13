@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114591703138170524}
   - component: {fileID: 114603090032707904}
   m_Layer: 5
-  m_Name: Shotgun
+  m_Name: BaseGun
   m_TagString: HighNoon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,6 +17,13 @@ public class Gun : MonoBehaviour {
 
     private void Start()
     {
+        if (GunfireAnimationName == "HighNoon") {
+            GunfireAnimationName = "Rifle";
+            RifleBulletDamage = 0.5f;
+            ShotgunBulletDamage = 2;
+            gameObject.name = "BaseGun";
+        }
+
         GunAnimator.Play(GunfireAnimationName);
     }
 
@@ -46,13 +53,17 @@ public class Gun : MonoBehaviour {
         var b = Instantiate<Bullet>(BulletPrefab, transform.position, transform.rotation);
 
 
-        if (GunfireAnimationName == "Rifle" && name != "BaseGun")
+        if (GunfireAnimationName == "Rifle" && gameObject.name != "BaseGun")
         {
             bulletDamage = RifleBulletDamage;
             b.isRifle = true;
         }
         else if (GunfireAnimationName == "HighNoon")
+        {
             bulletDamage = RevolverBulletDamage;
+            GunfireAnimationName = "Rifle";
+            bulletDamage = 0.1f;
+        }
         else if (GunfireAnimationName == "Shotgun")
             bulletDamage = ShotgunBulletDamage;
 
