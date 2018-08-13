@@ -136,9 +136,7 @@ public class Inventory : MonoBehaviour
         if (hoveredSlot == null || hoveredSlot.Item == null) return;
         if (!Input.GetMouseButton(0))
         {
-            hoveredSlot.ItemView.DropAway();
-            ForgetAbout(hoveredSlot.Item);
-            GunsInHandsUpdater.UpdateItemsList(AllItems);
+            DropItem(hoveredSlot.Item);
             return;
         }
         DraggedItem = hoveredSlot.Item;
@@ -192,16 +190,19 @@ public class Inventory : MonoBehaviour
         GunsInHandsUpdater.UpdateItemsList(AllItems);
     }
 
-    internal void ClearCarrots()
+    public void DropCarrot()
     {
-        foreach (var slot in
-              AllSlots.Where(s => s.Item != null && s.Item.ItemTag == "Carrot")
-                .GroupBy(s => s.Item)
-                .Select(s => s.First()))
+        var carrot = AllItems.FirstOrDefault(i => i.ItemTag == "Carrot");
+        if (carrot != null)
         {
-            ForgetAbout(slot.Item);
-            Destroy(slot.ItemView.transform);
+            DropItem(carrot);
         }
+    }
+
+    private void DropItem(Item item)
+    {
+        FindSlots(item).First().ItemView.DropAway();
+        ForgetAbout(item);
         GunsInHandsUpdater.UpdateItemsList(AllItems);
     }
 
