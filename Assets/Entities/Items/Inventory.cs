@@ -139,13 +139,12 @@ public class Inventory : MonoBehaviour
 
     public bool AcceptDraggedItem(InventoryItemView itemView)
     {
-        if (hoveredSlot == null)
+        if (!IsDraggedItemAcceptable)
         {
             DraggedItem = null;
             GunsInHandsUpdater.UpdateItemsList(AllItems);
             return false;
         }
-        var x = HoveredSlots;
 
         foreach (var slot in
               HoveredSlots.Where(s => s.Item != null)
@@ -185,7 +184,7 @@ public class Inventory : MonoBehaviour
 
     private bool IsDraggedItemAcceptable
     {
-        get { return hoveredSlot != null && HoveredSlots.All(s => s != null && s.Item == null); }
+        get { return hoveredSlot != null && HoveredSlots.All(s => s != null); }
     }
 
     private IEnumerable<InventorySlot> FindSlots(Item item)
