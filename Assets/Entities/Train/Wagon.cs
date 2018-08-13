@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Wagon: MonoBehaviour
+public class Wagon : MonoBehaviour
 {
     [SerializeField] private float dpsGoal = 5;
     [SerializeField] private Animator visuals;
@@ -33,17 +33,17 @@ public class Wagon: MonoBehaviour
         dpsCounter.Update();
     }
 
-    private void Wall_DamageReceived(float damage, Vector3 position, GameObject drop)
+    private void Wall_DamageReceived(float damage, Vector3 position, GameObject drop = null, bool isBandos = false)
     {
         dpsCounter.Register(damage);
-        if (damage > dpsGoal)
+        if (isBandos)
         {
             if (DpsGoalReached != null)
                 DpsGoalReached();
         }
 
-        if (drop != null)
-            ItemCreated(new Item(drop), position);
+        if (drop != null && ItemCreated != null ) 
+            ItemCreated(new Item(drop), transform.position);
 
         for (var i = 0; i < Random.Range(1, 4); i++)
         {

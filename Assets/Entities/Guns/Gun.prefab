@@ -104,10 +104,10 @@ MonoBehaviour:
     type: 2}
   GunAnimator: {fileID: 95318780764655142}
   GunfireAnimationName: HighNoon
-  Cooldown: 5
+  Cooldown: 3
   GunshotEffect: {fileID: 198733880590840568}
-  RifleBulletDamage: 100
-  ShotgunBulletDamage: 1
+  RifleBulletDamage: 50
+  ShotgunBulletDamage: 20
   RevolverBulletDamage: 1
 --- !u!198 &198733880590840568
 ParticleSystem:

@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour {
 
     public ParticleSystem GunshotEffect;
 
-    float MaxBulletSize = 1.4f;
+    float MaxBulletSize = 0.9f;
     public float RifleBulletDamage = 2;
     public float ShotgunBulletDamage = 1;
     public float RevolverBulletDamage = 0.5f;
@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour {
         var bulletDamage = 1f;
 
         var b = Instantiate<Bullet>(BulletPrefab, transform.position, transform.rotation);
-        var scale = (bulletDamage / maxBulletDamage) * MaxBulletSize + 0.3f;
+
 
         if (GunfireAnimationName == "Rifle" && name != "BaseGun")
         {
@@ -53,7 +53,10 @@ public class Gun : MonoBehaviour {
         else if (GunfireAnimationName == "Shotgun")
             bulletDamage = ShotgunBulletDamage;
 
-        Shaker.instance.Shake(0.1f * scale);
+        var scale = (bulletDamage / maxBulletDamage) * MaxBulletSize + 0.3f;
+
+        if (!(BulletPrefab.name == "EnemyBullet"))
+            Shaker.instance.Shake(0.1f * scale);
 
         b.transform.localScale = Vector3.one * scale;
         b.Damage = bulletDamage;

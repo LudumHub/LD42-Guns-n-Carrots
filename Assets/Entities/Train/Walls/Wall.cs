@@ -7,7 +7,7 @@ public class Wall : MonoBehaviour
 
     public float DamageScale = 1;
     public FloatingNumber TextPrefab;
-    public event Action<float, Vector3, GameObject> DamageReceived;
+    public event Action<float, Vector3, GameObject, bool> DamageReceived;
     public GameObject drop;
 
     public void Hit(Bullet bullet)
@@ -18,7 +18,7 @@ public class Wall : MonoBehaviour
         if (DamageScale < 5 && !bullet.isRifle) return;
 
         if (DamageReceived != null)
-            DamageReceived(damage, bullet.transform.position, drop);
+            DamageReceived(damage, bullet.transform.position, drop, CompareTag("Enemy"));
 
         if (TextPrefab != null && DamageScale > 1)
         {

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 50016959058562850}
   m_Layer: 11
   m_Name: Bandos
-  m_TagString: bulletUnpassable
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

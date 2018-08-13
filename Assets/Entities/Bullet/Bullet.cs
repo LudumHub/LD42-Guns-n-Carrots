@@ -22,15 +22,19 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("bulletUnpassable"))
+        if (collision.gameObject.CompareTag("bulletUnpassable")
+            || collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SendMessage("Hit", this);
             rigidBody.velocity = Vector2.zero;
             spriteRenderer.enabled = false;
         }
-
-        else
+        else if (collision.gameObject.CompareTag("Mirror"))
             collision.gameObject.SendMessage("PlayParticles", transform.position);
+        else
+            gameObject.SetActive(false);
+        
     }
+
 
 }

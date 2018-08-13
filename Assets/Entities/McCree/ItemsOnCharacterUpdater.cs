@@ -53,7 +53,8 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
 
     private void AddNewGun(Item i)
     {
-        var gun = Instantiate<Gun>(GunPrefub, gunsArea.position, Quaternion.identity, transform);
+        var gun = Instantiate<Gun>(GunPrefub, gunsArea.position, gunsArea.rotation, transform);
+        gun.transform.SetParent(gunsArea);
         gun.GunfireAnimationName = i.ItemTag;
         items.Add(i, gun.transform);
     }
