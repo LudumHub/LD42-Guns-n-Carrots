@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class Inventory : MonoBehaviour
 
     private InventorySlot[,] slots;
     private InventorySlot hoveredSlot;
+
     private const int Columns = 5;
     private const int Rows = 5;
 
@@ -166,6 +168,19 @@ public class Inventory : MonoBehaviour
         ResetHighlight();
         GunsInHandsUpdater.UpdateItemsList(AllItems);
         return true;
+    }
+
+    internal void ClearCarrots()
+    {
+        foreach (var slot in
+              AllSlots.Where(s => s.Item != null && s.Item.ItemTag == "Carrot")
+                .GroupBy(s => s.Item)
+                .Select(s => s.First()))
+        {
+            Destroy(slot.ItemView);
+            InventoryForgetAbout(slot.Item);
+        }
+        GunsInHandsUpdater.UpdateItemsList(AllItems);
     }
 
     private bool IsDraggedItemAcceptable

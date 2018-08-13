@@ -9,6 +9,8 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
     public CharacterMovment characterMovment;
     public Dictionary<Item, Transform> items = new Dictionary<Item, Transform>();
 
+    public Transform gunsArea;
+
     private void Awake()
     {
         foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
@@ -51,7 +53,7 @@ public class ItemsOnCharacterUpdater : MonoBehaviour {
 
     private void AddNewGun(Item i)
     {
-        var gun = Instantiate<Gun>(GunPrefub, transform.position, Quaternion.identity, transform);
+        var gun = Instantiate<Gun>(GunPrefub, gunsArea.position, Quaternion.identity, transform);
         gun.GunfireAnimationName = i.ItemTag;
         items.Add(i, gun.transform);
     }

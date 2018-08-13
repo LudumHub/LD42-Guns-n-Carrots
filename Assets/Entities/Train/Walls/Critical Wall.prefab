@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910773113343752}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.621, y: 0.792, z: -1}
+  m_LocalPosition: {x: 0.47, y: 0.59, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,10 +77,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.65, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 1.74, y: 0.45, z: 0.53, w: 0.45}
+    border: {x: 1.76, y: 0.51, z: 0.53, w: 0.48}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.43, y: 1.2}
-    newSize: {x: -3.0576499, y: 2.0957513}
+    newSize: {x: 3, y: 1.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bc2189878c2f74eb6d7997c0ef9a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageScale: 3
+  hitParticle: {fileID: 1171569697894756, guid: 0f39222b5d2c133429c688fd803b1247,
+    type: 2}
+  DamageScale: 80
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
 --- !u!212 &212916618340271394
@@ -141,7 +143,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: -3.0576499, y: 2.0957513}
+  m_Size: {x: 3, y: 1.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

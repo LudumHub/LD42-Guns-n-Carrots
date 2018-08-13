@@ -56,7 +56,7 @@ public class Train : MonoBehaviour
         itemSpawner.SpawnItem(item, spawnPosition);
     }
 
-    private void CurrentWagon_DpsGoalReached()
+    public void CurrentWagon_DpsGoalReached()
     {
         StartCoroutine(MoveToNextWagon());
     }

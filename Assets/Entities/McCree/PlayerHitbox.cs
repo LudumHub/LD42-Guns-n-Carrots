@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHitbox : MonoBehaviour
 {
@@ -6,9 +7,6 @@ public class PlayerHitbox : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
-        foreach (var gun in gunFather.GetComponentsInChildren<Gun>())
-        {
-            gun.ResetCooldown();
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

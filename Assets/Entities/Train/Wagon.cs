@@ -36,16 +36,13 @@ public class Wagon: MonoBehaviour
     private void Wall_DamageReceived(float damage, Vector3 position)
     {
         dpsCounter.Register(damage);
-        if (Dps >= dpsGoal)
+        if (damage > dpsGoal)
         {
             if (DpsGoalReached != null)
                 DpsGoalReached();
         }
 
-        const float maxItemsOnScreen = 5;
-        var currentItemsOnScreen = FindObjectsOfType<WorldItemView>().Length;
-        var spawnChance = 1 - 1 / maxItemsOnScreen * currentItemsOnScreen;
-        if (Random.value < spawnChance)
+        for (var i = 0; i < Random.Range(1, 5); i++)
         {
             var template = droppedItems[new System.Random().Next(droppedItems.Length)];
             var item = new Item(template);

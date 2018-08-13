@@ -503,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904500499830036}
   m_LocalRotation: {x: -0, y: -0, z: 0.24492814, w: 0.9695413}
-  m_LocalPosition: {x: -0.42, y: 1.66, z: -1.3638}
+  m_LocalPosition: {x: -0.42, y: 1.66, z: -1.48}
   m_LocalScale: {x: 1, y: 1, z: 1.0841421}
   m_Children:
   - {fileID: 4293216328747862}
@@ -631,7 +631,7 @@ MonoBehaviour:
     type: 2}
   GunAnimator: {fileID: 95589782828752734}
   GunfireAnimationName: Rifle
-  Cooldown: 3
+  Cooldown: 9999
   GunshotEffect: {fileID: 198578289245394686}
   RifleBulletDamage: 0.5
   ShotgunBulletDamage: 10
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitParticle: {fileID: 0}
-  DamageScale: 3
+  DamageScale: 9999
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
 --- !u!198 &198578289245394686
@@ -663,7 +663,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -711,7 +711,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 557692841
+  randomSeed: 933771002
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4098,7 +4098,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
