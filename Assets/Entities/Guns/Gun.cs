@@ -39,15 +39,19 @@ public class Gun : MonoBehaviour {
 
         var maxBulletDamage = Mathf.Max(RifleBulletDamage, ShotgunBulletDamage, RevolverBulletDamage, 15);
         var bulletDamage = 1f;
-        if (GunfireAnimationName == "Rifle")
+
+        var b = Instantiate<Bullet>(BulletPrefab, transform.position, transform.rotation);
+        var scale = (bulletDamage / maxBulletDamage) * MaxBulletSize + 0.3f;
+
+        if (GunfireAnimationName == "Rifle" && name != "BaseGun")
+        {
             bulletDamage = RifleBulletDamage;
+            b.isRifle = true;
+        }
         else if (GunfireAnimationName == "HighNoon")
             bulletDamage = RevolverBulletDamage;
         else if (GunfireAnimationName == "Shotgun")
             bulletDamage = ShotgunBulletDamage;
-
-        var b = Instantiate<Bullet>(BulletPrefab, transform.position, transform.rotation);
-        var scale = (bulletDamage / maxBulletDamage) * MaxBulletSize + 0.3f;
 
         Shaker.instance.Shake(0.1f * scale);
 

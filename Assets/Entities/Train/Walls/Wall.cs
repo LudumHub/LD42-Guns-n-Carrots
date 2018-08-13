@@ -12,13 +12,10 @@ public class Wall : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
-        if (hitParticle != null)
-        {
-            Instantiate(hitParticle, bullet.transform.position, Quaternion.identity);
-        }
+        PlayParticles(bullet.transform.position);
 
         var damage = bullet.Damage * DamageScale;
-        if (DamageScale < 5) return;
+        if (DamageScale < 5 && !bullet.isRifle) return;
 
         if (DamageReceived != null)
             DamageReceived(damage, bullet.transform.position, drop);
@@ -32,5 +29,13 @@ public class Wall : MonoBehaviour
 
         Destroy(gameObject);
 
+    }
+
+    public void PlayParticles(Vector3 position)
+    {
+        if (hitParticle != null)
+        {
+            Instantiate(hitParticle, position, Quaternion.identity);
+        }
     }
 }

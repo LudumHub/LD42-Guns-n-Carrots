@@ -9,6 +9,7 @@ TagManager:
   - Shotgun
   - Rifle
   - Carrot
+  - Mirror
   layers:
   - Default
   - TransparentFX

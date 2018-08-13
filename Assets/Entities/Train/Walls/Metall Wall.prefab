@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114129369673628150}
   - component: {fileID: 61165437656113164}
   - component: {fileID: 50956153219230574}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Metall Wall
-  m_TagString: bulletUnpassable
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685838969754888}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -58,10 +58,10 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6831ca76bbb68d442aae54a59ad6803c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61165437656113164
 BoxCollider2D:
@@ -104,6 +104,7 @@ MonoBehaviour:
   DamageScale: 0.5
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
+  drop: {fileID: 0}
 --- !u!212 &212317634771690686
 SpriteRenderer:
   m_ObjectHideFlags: 1

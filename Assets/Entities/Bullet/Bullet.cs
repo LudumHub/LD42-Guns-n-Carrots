@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 
     Rigidbody2D rigidBody;
     public SpriteRenderer spriteRenderer;
+    public bool isRifle = false;
 
     private IEnumerator Start()
     {
@@ -19,12 +20,17 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.CompareTag("bulletUnpassable")) return;
+        if (collision.gameObject.CompareTag("bulletUnpassable"))
+        {
+            collision.gameObject.SendMessage("Hit", this);
+            rigidBody.velocity = Vector2.zero;
+            spriteRenderer.enabled = false;
+        }
 
-        collision.SendMessage("Hit", this);
-        rigidBody.velocity = Vector2.zero;
-        spriteRenderer.enabled = false;
+        else
+            collision.gameObject.SendMessage("PlayParticles", transform.position);
     }
+
 }

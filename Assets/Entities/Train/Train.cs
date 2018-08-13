@@ -39,6 +39,7 @@ public class Train : MonoBehaviour
         }
         RegisterNextWagon();
         dps.text = string.Empty;
+        ProtectionWall.SetActive(false);
     }
 
     private void RegisterNextWagon()
@@ -61,8 +62,12 @@ public class Train : MonoBehaviour
         StartCoroutine(MoveToNextWagon());
     }
 
+    public GameObject ProtectionWall;
+
     private IEnumerator MoveToNextWagon()
     {
+        ProtectionWall.SetActive(true);
+
         UnregisterCurrentWagon();
         UpdateDpsLabel();
         shouldUpdateDps = false;
@@ -78,6 +83,8 @@ public class Train : MonoBehaviour
             transform.position = position;
             yield return new WaitForEndOfFrame();
         }
+
+        ProtectionWall.SetActive(false);
     }
 
     private void UnregisterCurrentWagon()

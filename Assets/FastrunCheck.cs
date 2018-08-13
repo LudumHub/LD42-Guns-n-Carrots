@@ -11,8 +11,6 @@ public class FastrunCheck : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (cooldown > 0) return;
-
-        StartCoroutine(Atowin());
         train.CurrentWagon_DpsGoalReached();
         cooldown = 10f;
     }
@@ -23,9 +21,4 @@ public class FastrunCheck : MonoBehaviour {
         cooldown -= Time.deltaTime;
     }
 
-    private IEnumerator Atowin()
-    {
-        yield return new WaitForSeconds(3f);
-        items.ClearCarrots();
-    }
 }
