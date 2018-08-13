@@ -12,7 +12,7 @@ public class Shaker : MonoBehaviour {
     float timer = 0;
     public float deviationChangeTimer = 4f;
     public float deviationSize = 2f;
-    Vector3 StartPosition;
+    public Vector3 StartPosition;
     float ShakeTimer = 0f;
 
     public static Shaker instance;

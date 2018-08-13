@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/UI Prototype.unity
     guid: d704bd370ced5b94eaa1e9338eec72a2
+  - enabled: 1
+    path: Assets/Endgame.unity
+    guid: cb09d215e3bf1424a99bd77ff03fdfec

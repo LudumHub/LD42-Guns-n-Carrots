@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Train : MonoBehaviour
@@ -45,9 +47,24 @@ public class Train : MonoBehaviour
     private void RegisterNextWagon()
     {
         UnregisterCurrentWagon();
-        currentWagon = wagons.Dequeue();
-        currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
-        currentWagon.ItemCreated += CurrentWagon_ItemCreated;
+        if (wagons.Count > 0)
+        {
+            currentWagon = wagons.Dequeue();
+            currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
+            currentWagon.ItemCreated += CurrentWagon_ItemCreated;
+        }
+        else
+            StartCoroutine(Fin());
+    }
+
+    private IEnumerator Fin()
+    {
+        var s = Camera.main.GetComponent<Shaker>();
+        s.StartPosition += new Vector3(-10, -20, 0);
+        s.smoothDampTime = 5f;
+
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(2);
     }
 
     private void CurrentWagon_ItemCreated(Item item, Vector3 position)
