@@ -7,7 +7,6 @@ using UnityEngine;
 public class ItemsOnCharacterUpdater : MonoBehaviour {
     public Gun GunPrefub;
     public CharacterMovment characterMovment;
-
     public Dictionary<Item, Transform> items = new Dictionary<Item, Transform>();
 
     private void Awake()

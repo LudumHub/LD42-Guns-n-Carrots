@@ -6,6 +6,8 @@ public class Gun : MonoBehaviour {
     public string GunfireAnimationName = "Rifle";
     public float Cooldown = 3f;
 
+    public ParticleSystem GunshotEffect;
+
     float MaxBulletSize = 1.4f;
     public float RifleBulletDamage = 2;
     public float ShotgunBulletDamage = 1;
@@ -28,6 +30,8 @@ public class Gun : MonoBehaviour {
 
     public void Shoot()
     {
+        GunshotEffect.Play();
+
         var maxBulletDamage = Mathf.Max(RifleBulletDamage, ShotgunBulletDamage, RevolverBulletDamage);
         var bulletDamage = 1f;
         if (GunfireAnimationName == "Rifle")

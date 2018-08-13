@@ -137,7 +137,12 @@ public class Inventory : MonoBehaviour
 
     public bool AcceptDraggedItem(InventoryItemView itemView)
     {
-        if (hoveredSlot == null) return false;
+        if (hoveredSlot == null)
+        {
+            DraggedItem = null;
+            GunsInHandsUpdater.UpdateItemsList(AllItems);
+            return false;
+        }
         var x = HoveredSlots;
 
         foreach (var slot in

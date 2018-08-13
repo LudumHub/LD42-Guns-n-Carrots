@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198150055904890010}
   - component: {fileID: 199152500582084504}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Gunshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,9 +34,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797794019006362}
-  m_LocalRotation: {x: -0, y: -0, z: 0.5338738, w: 0.8455642}
-  m_LocalPosition: {x: -7.26, y: 3.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3105102, w: 0.95057005}
+  m_LocalPosition: {x: 0.7, y: -0.313, z: -0.58682346}
+  m_LocalScale: {x: 1, y: 1, z: 0.9223884}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,12 +48,12 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797794019006362}
   serializedVersion: 5
-  lengthInSec: 2
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -101,7 +101,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2089857481
+  randomSeed: 557692841
   InitialModule:
     serializedVersion: 3
     enabled: 1
