@@ -51,7 +51,7 @@ public class CharacterMovment : MonoBehaviour {
         if (timer < deviationChangeTimer) return;
         timer = 0;
 
-        deviation = new Vector3(Random.value, Random.value, 0) * deviationSize;
+        deviation = new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0) * deviationSize;
     }
 
     void LateUpdate()
