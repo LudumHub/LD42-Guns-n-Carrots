@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour {
             ShotgunBulletDamage = 2;
             gameObject.name = "BaseGun";
         }
+        gameObject.tag = GunfireAnimationName;
 
         GunAnimator.Play(GunfireAnimationName);
     }
