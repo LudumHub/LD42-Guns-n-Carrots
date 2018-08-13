@@ -33,7 +33,7 @@ public class Wagon: MonoBehaviour
         dpsCounter.Update();
     }
 
-    private void Wall_DamageReceived(float damage, Vector3 position)
+    private void Wall_DamageReceived(float damage, Vector3 position, GameObject drop)
     {
         dpsCounter.Register(damage);
         if (damage > dpsGoal)
@@ -42,7 +42,10 @@ public class Wagon: MonoBehaviour
                 DpsGoalReached();
         }
 
-        for (var i = 0; i < Random.Range(1, 5); i++)
+        if (drop != null)
+            ItemCreated(new Item(drop), position);
+
+        for (var i = 0; i < Random.Range(1, 4); i++)
         {
             var template = droppedItems[new System.Random().Next(droppedItems.Length)];
             var item = new Item(template);

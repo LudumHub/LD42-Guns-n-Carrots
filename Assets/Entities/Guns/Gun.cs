@@ -15,6 +15,11 @@ public class Gun : MonoBehaviour {
 
     float timer;
 
+    private void Start()
+    {
+        GunAnimator.Play(GunfireAnimationName);
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -32,7 +37,7 @@ public class Gun : MonoBehaviour {
     {
         GunshotEffect.Play();
 
-        var maxBulletDamage = Mathf.Max(RifleBulletDamage, ShotgunBulletDamage, RevolverBulletDamage);
+        var maxBulletDamage = Mathf.Max(RifleBulletDamage, ShotgunBulletDamage, RevolverBulletDamage, 15);
         var bulletDamage = 1f;
         if (GunfireAnimationName == "Rifle")
             bulletDamage = RifleBulletDamage;

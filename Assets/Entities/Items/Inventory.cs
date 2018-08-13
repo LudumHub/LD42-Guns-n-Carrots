@@ -177,8 +177,8 @@ public class Inventory : MonoBehaviour
                 .GroupBy(s => s.Item)
                 .Select(s => s.First()))
         {
-            Destroy(slot.ItemView);
             InventoryForgetAbout(slot.Item);
+            Destroy(slot.ItemView.transform);
         }
         GunsInHandsUpdater.UpdateItemsList(AllItems);
     }
