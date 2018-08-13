@@ -4541,6 +4541,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.92550844
       objectReference: {fileID: 0}
+    - target: {fileID: 1976304081415196, guid: d910e2490008a2e46af5d7793a063dbf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d910e2490008a2e46af5d7793a063dbf, type: 2}
   m_IsPrefabParent: 0
@@ -6768,6 +6772,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 210360303}
   slotTemplate: {fileID: 1046625143}
+  startingGun: {fileID: 1976304081415196, guid: d910e2490008a2e46af5d7793a063dbf,
+    type: 2}
+  startingGunPosition: {x: 3, y: 3}
   GunsInHandsUpdater: {fileID: 2041243790}
 --- !u!1 &1017778798
 GameObject:

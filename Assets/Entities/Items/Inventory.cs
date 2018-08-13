@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private GridLayoutGroup grid;
     [SerializeField] private InventorySlot slotTemplate;
+    [SerializeField] private GameObject startingGun;
+    [SerializeField] private Vector2Int startingGunPosition;
 
     private InventorySlot[,] slots;
     private InventorySlot hoveredSlot;
@@ -39,6 +42,15 @@ public class Inventory : MonoBehaviour
             }
         }
         slotTemplate.gameObject.SetActive(false);
+    }
+
+    private IEnumerator Start()
+    {
+        // We need this wait because grid needs to layout before we can assign items to it
+        yield return new WaitForEndOfFrame();
+        var startingItem = new Item(startingGun);
+        var startingItemView = FindObjectOfType<ItemFactory>().CreateInventoryItem(startingItem);
+        AcceptItem(startingItemView, startingGunPosition);
     }
 
     private void Slot_PointerEnter(InventorySlot slot)
@@ -156,17 +168,21 @@ public class Inventory : MonoBehaviour
 
         }
 
-        itemView.transform.position = hoveredSlot.transform.position;
-        foreach (var slot in HoveredSlots)
-        {
-            slot.Item = DraggedItem;
-            slot.ItemView = itemView;
-        }
-
+        AcceptItem(itemView, hoveredSlot.Position);
         DraggedItem = null;
         ResetHighlight();
-        GunsInHandsUpdater.UpdateItemsList(AllItems);
         return true;
+    }
+
+    private void AcceptItem(InventoryItemView item, Vector2Int position)
+    {
+        item.transform.position = GetSlot(position).transform.position;
+        foreach (var slot in GetHoveredSlots(item.Item, position))
+        {
+            slot.Item = item.Item;
+            slot.ItemView = item;
+        }
+        GunsInHandsUpdater.UpdateItemsList(AllItems);
     }
 
     internal void ClearCarrots()
@@ -199,17 +215,23 @@ public class Inventory : MonoBehaviour
 
     private IEnumerable<InventorySlot> HoveredSlots
     {
-        get
-        {
-            return DraggedItem.OccupiedSlotPositions
-                .Select(p => GetSlot(p, hoveredSlot.Position))
-                .ToList();
-        }
+        get { return GetHoveredSlots(DraggedItem, hoveredSlot.Position); }
+    }
+
+    private IEnumerable<InventorySlot> GetHoveredSlots(Item item, Vector2Int origin)
+    {
+        return item.OccupiedSlotPositions
+            .Select(p => GetSlot(p, origin))
+            .ToList();
     }
 
     private InventorySlot GetSlot(Vector2Int position, Vector2Int origin)
     {
-        var finalPosition = origin + position;
-        return AllSlots.FirstOrDefault(s => s.Position.Equals(finalPosition));
+        return GetSlot(origin + position);
+    }
+
+    private InventorySlot GetSlot(Vector2Int position)
+    {
+        return AllSlots.FirstOrDefault(s => s.Position.Equals(position));
     }
 }
