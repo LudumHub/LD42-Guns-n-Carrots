@@ -27,6 +27,11 @@ public class InventoryItemView : MonoBehaviour
         }
     }
 
+    public void DropAway()
+    {
+        StartCoroutine(MoveToDropPoint());
+    }
+
     private IEnumerator MoveToDropPoint()
     {
         var dropPoint = FindObjectOfType<DropArea>().GetRandomPoint();

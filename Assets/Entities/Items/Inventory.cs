@@ -122,24 +122,34 @@ public class Inventory : MonoBehaviour
         if (hoveredSlot == null || hoveredSlot.Item == null) return;
         DraggedItem = hoveredSlot.Item;
         hoveredSlot.ItemView.StartDragging();
-        foreach (var slot in FindSlots(hoveredSlot.Item))
+        InventoryForgetAbout(hoveredSlot.Item);
+        HighlightDraggedItemSlots();
+    }
+
+    private void InventoryForgetAbout(Item item)
+    {
+        foreach (var slot in FindSlots(item))
         {
             slot.Item = null;
             slot.ItemView = null;
         }
-        HighlightDraggedItemSlots();
     }
 
     public bool AcceptDraggedItem(InventoryItemView itemView)
     {
-        if (!IsDraggedItemAcceptable)
-        {
-            DraggedItem = null;
-            ResetHighlight();
+        if (hoveredSlot == null) return false;
+        var x = HoveredSlots;
 
-            GunsInHandsUpdater.UpdateItemsList(AllItems);
-            return false;
+        foreach (var slot in
+              HoveredSlots.Where(s => s.Item != null)
+                .GroupBy(s => s.Item)
+                .Select(s => s.First()))
+        {
+               slot.ItemView.DropAway();
+               InventoryForgetAbout(slot.Item);
+
         }
+
         itemView.transform.position = hoveredSlot.transform.position;
         foreach (var slot in HoveredSlots)
         {
@@ -147,8 +157,9 @@ public class Inventory : MonoBehaviour
             slot.ItemView = itemView;
         }
 
-        GunsInHandsUpdater.UpdateItemsList(AllItems);
         DraggedItem = null;
+        ResetHighlight();
+        GunsInHandsUpdater.UpdateItemsList(AllItems);
         return true;
     }
 
