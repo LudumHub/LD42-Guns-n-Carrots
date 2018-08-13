@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("bulletUnpassable")
             || collision.gameObject.CompareTag("Enemy"))
@@ -33,8 +33,5 @@ public class Bullet : MonoBehaviour {
             collision.gameObject.SendMessage("PlayParticles", transform.position);
         else
             gameObject.SetActive(false);
-        
     }
-
-
 }
