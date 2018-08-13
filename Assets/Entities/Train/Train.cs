@@ -11,6 +11,7 @@ public class Train : MonoBehaviour
     [SerializeField] private ItemSpawner itemSpawner;
     [SerializeField] private Text dps;
     [SerializeField] private float wagonLength = 9;
+    [SerializeField] private AudioSource TUTURU;
 
     private readonly Queue<Wagon> wagons = new Queue<Wagon>();
     private Wagon currentWagon;
@@ -89,6 +90,7 @@ public class Train : MonoBehaviour
         UpdateDpsLabel();
         shouldUpdateDps = false;
         yield return currentWagon.Destroy();
+        TUTURU.Play();
         RegisterNextWagon();
         shouldUpdateDps = true;
 
