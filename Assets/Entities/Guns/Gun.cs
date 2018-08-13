@@ -3,6 +3,7 @@
 public class Gun : MonoBehaviour {
     public Bullet BulletPrefab;
     public Animator GunAnimator;
+    public AudioSource AudioSource;
     public string GunfireAnimationName = "Rifle";
     public float Cooldown = 3f;
 
@@ -75,5 +76,13 @@ public class Gun : MonoBehaviour {
         b.transform.localScale = Vector3.one * scale;
         b.Damage = bulletDamage;
         b.GetComponent<TrailRenderer>().widthMultiplier *= scale;
+        PlayGunSound(name == "BaseGun" ? "BaseGun" : GunfireAnimationName);
+    }
+
+    private void PlayGunSound(string gun)
+    {
+        var sound = FindObjectOfType<GunSoundsLibrary>().GetSound(gun);
+        AudioSource.clip = sound;
+        AudioSource.Play();
     }
 }
