@@ -14,12 +14,20 @@ public class Shaker : MonoBehaviour {
     public float deviationSize = 2f;
     public Vector3 StartPosition;
     float ShakeTimer = 0f;
+    private bool preserveTimer;
 
     public static Shaker instance;
 
     public void Shake(float seconds)
     {
-        ShakeTimer = seconds;
+        if (!preserveTimer)
+            ShakeTimer = seconds;
+    }
+
+    public void ShakeContinuously(float seconds)
+    {
+        Shake(seconds);
+        preserveTimer = true;
     }
 
     private void Awake()
@@ -31,7 +39,10 @@ public class Shaker : MonoBehaviour {
     private void Update()
     {
         if (ShakeTimer < 0f)
+        {
+            preserveTimer = false;
             destination = StartPosition;
+        }
         else
         {
             ShakeTimer -= Time.deltaTime;

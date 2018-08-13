@@ -42,7 +42,7 @@ public class Wagon : MonoBehaviour
                 DpsGoalReached();
         }
 
-        if (drop != null && ItemCreated != null ) 
+        if (drop != null && ItemCreated != null )
             ItemCreated(new Item(drop), transform.position);
 
         for (var i = 0; i < Random.Range(1, 4); i++)
@@ -72,6 +72,8 @@ public class Wagon : MonoBehaviour
     private IEnumerator StartDestroying()
     {
         visuals.SetTrigger("Destroy");
+        yield return new WaitForSeconds(0.5f);
+        FindObjectOfType<Shaker>().ShakeContinuously(2f);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(MoveAway());
         yield return new WaitForSeconds(2f);
