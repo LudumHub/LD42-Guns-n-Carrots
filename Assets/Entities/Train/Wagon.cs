@@ -43,7 +43,11 @@ public class Wagon : MonoBehaviour
         }
 
         if (drop != null && ItemCreated != null )
+        if (drop != null && ItemCreated != null)
+        {
             ItemCreated(new Item(drop), transform.position);
+            CarrotsSpawner.LastRecievedGun = drop;
+        }
 
         for (var i = 0; i < Random.Range(1, 4); i++)
         {
