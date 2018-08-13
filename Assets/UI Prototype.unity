@@ -14018,6 +14018,8 @@ MonoBehaviour:
   CheckPlayersInventoryCooldown: 5
   Carrot1: {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
   Carrot2: {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
+  itemsOnCharacterUpdater: {fileID: 2041243790}
+  Gun: {fileID: 1976304081415196, guid: d910e2490008a2e46af5d7793a063dbf, type: 2}
 --- !u!1 &1561891928
 GameObject:
   m_ObjectHideFlags: 0
