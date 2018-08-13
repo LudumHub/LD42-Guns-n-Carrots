@@ -9,6 +9,7 @@ public class CharacterMovment : MonoBehaviour {
     }
     int carrots = 0;
 
+    public static bool isMoving = false;
     public Transform LowestPosition;
     public Transform HighestPosition;
 
@@ -58,5 +59,8 @@ public class CharacterMovment : MonoBehaviour {
     {
         transform.position = 
             Vector3.SmoothDamp(transform.position, destination, ref smoothDampVelocity, smoothDampTime);
+
+        isMoving = (destination - transform.position).magnitude >
+            0.5f * deviationSize;
     }
 }

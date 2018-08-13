@@ -24,7 +24,10 @@ public class Gun : MonoBehaviour {
     {
         timer += Time.deltaTime;
         if (timer < Cooldown) return;
-        GunAnimator.Play(GunfireAnimationName);
+
+        if ((BulletPrefab.name != "EnemyBullet") && !CharacterMovment.isMoving)
+            GunAnimator.Play(GunfireAnimationName);
+
         ResetCooldown();
     }
 
