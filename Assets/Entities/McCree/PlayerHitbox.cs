@@ -7,6 +7,7 @@ public class PlayerHitbox : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
+        Debug.Log("DDD");
         FindObjectOfType<Inventory>().DropCarrot();
     }
 }
