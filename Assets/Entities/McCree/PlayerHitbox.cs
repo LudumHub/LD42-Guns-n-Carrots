@@ -7,6 +7,6 @@ public class PlayerHitbox : MonoBehaviour
 
     public void Hit(Bullet bullet)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
