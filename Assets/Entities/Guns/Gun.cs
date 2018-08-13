@@ -39,6 +39,9 @@ public class Gun : MonoBehaviour {
 
         var b = Instantiate<Bullet>(BulletPrefab, transform.position, transform.rotation);
         var scale = (bulletDamage / maxBulletDamage) * MaxBulletSize + 0.3f;
+
+        Shaker.instance.Shake(0.1f * scale);
+
         b.transform.localScale = Vector3.one * scale;
         b.Damage = bulletDamage;
         b.GetComponent<TrailRenderer>().widthMultiplier *= scale;

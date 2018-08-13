@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DpsCounter
 {
-    private const float SecondsToTrack = 3f;
+    private const float SecondsToTrack = 7f;
     private readonly Queue<DpsRecord> records = new Queue<DpsRecord>();
 
     public float Dps
     {
-        get { return records.Any() ? records.Sum(r => r.EffectiveDps) : 0; }
+        get
+        {
+            return records.Any() ? 
+                records.Sum(r => r.damage) / SecondsToTrack : 0;
+        }
     }
 
     public void Update()
@@ -27,7 +31,7 @@ public class DpsCounter
 
     private class DpsRecord
     {
-        private readonly float damage;
+       public readonly float damage;
 
         private readonly float timestamp;
 

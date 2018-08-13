@@ -75,5 +75,5 @@ MonoBehaviour:
   GunfireAnimationName: Rifle
   Cooldown: 3
   RifleBulletDamage: 0.5
-  ShotgunBulletDamage: 10
+  ShotgunBulletDamage: 30
   RevolverBulletDamage: 10
