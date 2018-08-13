@@ -10,6 +10,7 @@ public class Wagon : MonoBehaviour
     [SerializeField] private float dpsGoal = 5;
     [SerializeField] private Animator visuals;
     [SerializeField] private GameObject[] droppedItems;
+    [SerializeField] private bool notPartyMaker;
 
     public bool SkipToThis;
 
@@ -77,7 +78,8 @@ public class Wagon : MonoBehaviour
     {
         visuals.SetTrigger("Destroy");
         yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<Shaker>().ShakeContinuously(2f);
+        if (!notPartyMaker)
+            FindObjectOfType<Shaker>().ShakeContinuously(2f);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(MoveAway());
         yield return new WaitForSeconds(2f);

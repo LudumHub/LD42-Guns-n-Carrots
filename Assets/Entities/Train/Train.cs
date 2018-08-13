@@ -25,6 +25,11 @@ public class Train : MonoBehaviour
         {
             wagons.Enqueue(wagon);
         }
+
+        foreach (var bandos in GetComponentsInChildren<Wall>().Where(w => w.IsBandos))
+        {
+            bandos.SetGunEnabled(false);
+        }
     }
 
     private void Start()
@@ -53,6 +58,10 @@ public class Train : MonoBehaviour
             currentWagon = wagons.Dequeue();
             currentWagon.DpsGoalReached += CurrentWagon_DpsGoalReached;
             currentWagon.ItemCreated += CurrentWagon_ItemCreated;
+            foreach (var bandos in currentWagon.GetComponentsInChildren<Wall>().Where(w => w.IsBandos))
+            {
+                bandos.SetGunEnabled(true);
+            }
         }
         else
             StartCoroutine(Fin());

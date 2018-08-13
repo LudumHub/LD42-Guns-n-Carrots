@@ -9,6 +9,7 @@ public class Wall : MonoBehaviour
     public FloatingNumber TextPrefab;
     public event Action<float, Vector3, GameObject, bool> DamageReceived;
     public GameObject drop;
+    public bool IsBandos;
 
     public void Hit(Bullet bullet)
     {
@@ -36,6 +37,14 @@ public class Wall : MonoBehaviour
         if (hitParticle != null)
         {
             Instantiate(hitParticle, position, Quaternion.identity);
+        }
+    }
+
+    public void SetGunEnabled(bool value)
+    {
+        foreach (var animator in GetComponentsInChildren<Animator>())
+        {
+            animator.enabled = value;
         }
     }
 }

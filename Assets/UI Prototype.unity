@@ -3734,6 +3734,7 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
+  notPartyMaker: 1
   SkipToThis: 0
 --- !u!1 &317266261
 GameObject:
@@ -5213,6 +5214,7 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
+  notPartyMaker: 0
   SkipToThis: 0
 --- !u!1 &458137225
 GameObject:
@@ -7159,6 +7161,7 @@ MonoBehaviour:
   DamageScale: 1
   TextPrefab: {fileID: 0}
   drop: {fileID: 0}
+  IsBandos: 0
 --- !u!1 &651648259
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,6 +8680,7 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
+  notPartyMaker: 0
   SkipToThis: 0
 --- !u!1 &797388786
 GameObject:
@@ -10696,7 +10700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100.000015, y: 100}
+  m_AnchoredPosition: {x: -100, y: 100}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046625141
@@ -15221,7 +15225,6 @@ MonoBehaviour:
   Carrot1: {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
   Carrot2: {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   itemsOnCharacterUpdater: {fileID: 2041243790}
-  Gun: {fileID: 1976304081415196, guid: d910e2490008a2e46af5d7793a063dbf, type: 2}
 --- !u!1 &1561891928
 GameObject:
   m_ObjectHideFlags: 0
@@ -17983,6 +17986,7 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
+  notPartyMaker: 0
   SkipToThis: 0
 --- !u!1 &1889356423
 GameObject:
@@ -19912,4 +19916,5 @@ MonoBehaviour:
   droppedItems:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
-  SkipToThis: 1
+  notPartyMaker: 0
+  SkipToThis: 0
