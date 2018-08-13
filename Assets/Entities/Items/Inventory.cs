@@ -134,13 +134,20 @@ public class Inventory : MonoBehaviour
     {
         if (DraggedItem != null) return;
         if (hoveredSlot == null || hoveredSlot.Item == null) return;
+        if (!Input.GetMouseButton(0))
+        {
+            hoveredSlot.ItemView.DropAway();
+            ForgetAbout(hoveredSlot.Item);
+            GunsInHandsUpdater.UpdateItemsList(AllItems);
+            return;
+        }
         DraggedItem = hoveredSlot.Item;
         hoveredSlot.ItemView.StartDragging();
-        InventoryForgetAbout(hoveredSlot.Item);
+        ForgetAbout(hoveredSlot.Item);
         HighlightDraggedItemSlots();
     }
 
-    private void InventoryForgetAbout(Item item)
+    private void ForgetAbout(Item item)
     {
         foreach (var slot in FindSlots(item))
         {
@@ -164,7 +171,7 @@ public class Inventory : MonoBehaviour
                 .Select(s => s.First()))
         {
                slot.ItemView.DropAway();
-               InventoryForgetAbout(slot.Item);
+               ForgetAbout(slot.Item);
 
         }
 
@@ -192,7 +199,7 @@ public class Inventory : MonoBehaviour
                 .GroupBy(s => s.Item)
                 .Select(s => s.First()))
         {
-            InventoryForgetAbout(slot.Item);
+            ForgetAbout(slot.Item);
             Destroy(slot.ItemView.transform);
         }
         GunsInHandsUpdater.UpdateItemsList(AllItems);
