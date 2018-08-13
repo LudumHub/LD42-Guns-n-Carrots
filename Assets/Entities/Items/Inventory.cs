@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     private InventorySlot[,] slots;
     private InventorySlot hoveredSlot;
 
-    private const int Columns = 5;
+    private const int Columns = 3;
     private const int Rows = 5;
 
     public Item DraggedItem { get; set; }

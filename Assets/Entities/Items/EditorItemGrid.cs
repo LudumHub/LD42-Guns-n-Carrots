@@ -55,7 +55,7 @@ public class EditorItemGrid : MonoBehaviour
 
     private static Vector2Int CalculateGridPosition(int slotIndex)
     {
-        const int columns = 5;
+        const int columns = 3;
         return new Vector2Int(slotIndex % columns, slotIndex / columns);
     }
 
