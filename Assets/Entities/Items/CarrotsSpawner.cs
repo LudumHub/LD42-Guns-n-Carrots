@@ -15,7 +15,7 @@ public class CarrotsSpawner : ItemSpawner {
 
     private void Start()
     {
-        Spawn();
+        Spawn(GetRandomCarrot());
     }
 
     private void Update()
@@ -26,12 +26,22 @@ public class CarrotsSpawner : ItemSpawner {
         Spawn();
     }
 
+    private GameObject GetRandomCarrot()
+    {
+        return Random.value > 0.5 ? Carrot1 : Carrot2;
+    }
+
     private void Spawn()
     {
-        var item = Random.value > 0.5 ? Carrot1 : Carrot2;
-        if (itemsOnCharacterUpdater.items.Keys.Where(i => i.ItemTag == LastRecievedGun.tag).Count() == 0)
+        var item = GetRandomCarrot();
+        if (!itemsOnCharacterUpdater.items.Keys.Any(i => LastRecievedGun.CompareTag(i.ItemTag)))
             item = LastRecievedGun;
 
+        Spawn(item);
+    }
+
+    private void Spawn(GameObject item)
+    {
         SpawnItem(new Item(item), transform.position);
     }
 }

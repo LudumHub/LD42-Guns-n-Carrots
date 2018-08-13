@@ -49,6 +49,7 @@ public class Inventory : MonoBehaviour
         // We need this wait because grid needs to layout before we can assign items to it
         yield return new WaitForEndOfFrame();
         var startingItem = new Item(startingGun);
+        CarrotsSpawner.LastRecievedGun = startingGun;
         var startingItemView = FindObjectOfType<ItemFactory>().CreateInventoryItem(startingItem);
         AcceptItem(startingItemView, startingGunPosition);
     }
