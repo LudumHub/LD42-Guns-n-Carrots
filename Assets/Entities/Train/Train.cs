@@ -16,6 +16,8 @@ public class Train : MonoBehaviour
     private readonly Queue<Wagon> wagons = new Queue<Wagon>();
     private Wagon currentWagon;
     private bool shouldUpdateDps = true;
+    private float time;
+    private int levelsCompleted;
 
     public float Speed = 1;
 
@@ -93,6 +95,8 @@ public class Train : MonoBehaviour
 
     private IEnumerator MoveToNextWagon()
     {
+        Analytics.CompleteLevel(levelsCompleted++, time);
+        time = 0;
         ProtectionWall.SetActive(true);
 
         UnregisterCurrentWagon();
@@ -130,6 +134,8 @@ public class Train : MonoBehaviour
         {
             UpdateDpsLabel();
         }
+
+        time += Time.deltaTime;
     }
 
     private void UpdateDpsLabel()
