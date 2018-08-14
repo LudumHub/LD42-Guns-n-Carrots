@@ -20063,4 +20063,4 @@ MonoBehaviour:
   - {fileID: 1284624347829204, guid: 113bc7d7b8633f843b2c4ece0bf092be, type: 2}
   - {fileID: 1284624347829204, guid: 84332d45621772f41acaada6cd272d08, type: 2}
   notPartyMaker: 0
-  SkipToThis: 1
+  SkipToThis: 0
