@@ -21,10 +21,10 @@ public class Wall : MonoBehaviour
         if (DamageReceived != null)
             DamageReceived(damage, bullet.transform.position, drop, CompareTag("Enemy"));
 
-        if (TextPrefab != null && DamageScale > 1)
+        if (TextPrefab != null && DamageScale > 1 && CompareTag("Enemy"))
         {
             var label = Instantiate(TextPrefab, bullet.transform.position, Quaternion.identity);
-            label.textMesh.text = "- " + damage;
+            label.textMesh.text = "$" + damage;
             label.textMesh.color = new Color32(88, 32, 26, 255);
         }
 

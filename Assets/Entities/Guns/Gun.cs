@@ -36,6 +36,10 @@ public class Gun : MonoBehaviour {
 
         if ((BulletPrefab.name != "EnemyBullet") && !CharacterMovment.isMoving)
             GunAnimator.Play(GunfireAnimationName);
+        else
+        {
+            return;
+        }
 
         ResetCooldown();
     }
