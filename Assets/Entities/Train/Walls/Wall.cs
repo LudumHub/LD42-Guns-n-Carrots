@@ -10,6 +10,7 @@ public class Wall : MonoBehaviour
     public event Action<float, Vector3, GameObject, bool> DamageReceived;
     public GameObject drop;
     public bool IsBandos;
+    public GameObject boom;
 
     public void Hit(Bullet bullet)
     {
@@ -28,6 +29,7 @@ public class Wall : MonoBehaviour
             label.textMesh.color = new Color32(88, 32, 26, 255);
         }
 
+        Instantiate(boom, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
     }

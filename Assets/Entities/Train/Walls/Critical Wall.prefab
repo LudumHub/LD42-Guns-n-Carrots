@@ -105,6 +105,8 @@ MonoBehaviour:
   TextPrefab: {fileID: 114520052659297604, guid: 68b5eb6d3b3eef747a6842ce47995f2e,
     type: 2}
   drop: {fileID: 0}
+  IsBandos: 0
+  boom: {fileID: 1638196918220282, guid: 665d1f98a8c838245b4f22890332d922, type: 2}
 --- !u!212 &212916618340271394
 SpriteRenderer:
   m_ObjectHideFlags: 1

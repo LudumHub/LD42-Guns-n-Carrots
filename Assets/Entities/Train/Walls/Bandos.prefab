@@ -735,6 +735,7 @@ MonoBehaviour:
     type: 2}
   drop: {fileID: 0}
   IsBandos: 1
+  boom: {fileID: 1638196918220282, guid: 665d1f98a8c838245b4f22890332d922, type: 2}
 --- !u!198 &198578289245394686
 ParticleSystem:
   m_ObjectHideFlags: 1
