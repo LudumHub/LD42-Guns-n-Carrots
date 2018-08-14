@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour {
         else if (collision.gameObject.CompareTag("Mirror"))
             collision.gameObject.SendMessage("PlayParticles", transform.position);
         else
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
     }
 
@@ -48,6 +48,6 @@ public class Bullet : MonoBehaviour {
         else if (collision.gameObject.CompareTag("Mirror"))
             collision.gameObject.SendMessage("PlayParticles", transform.position);
         else
-            gameObject.SetActive(false);
+            Destroy(gameObject);
     }
 }
