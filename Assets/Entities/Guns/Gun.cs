@@ -27,6 +27,19 @@ public class Gun : MonoBehaviour {
         gameObject.tag = GunfireAnimationName;
 
         GunAnimator.Play(GunfireAnimationName);
+        if (GunfireAnimationName == "Rifle")
+        {
+            transform.localRotation = Quaternion.identity;
+            Shoot();
+        }
+        else if (GunfireAnimationName == "Shotgun")
+        {
+            transform.localRotation = Quaternion.Euler(0,0,19f);
+            Shoot();
+            transform.localRotation = Quaternion.Euler(0, 0, -17f);
+            Shoot();
+        }
+
     }
 
     private void Update()
