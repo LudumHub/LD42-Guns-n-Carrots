@@ -29,7 +29,8 @@ public class Wall : MonoBehaviour
             label.textMesh.color = new Color32(88, 32, 26, 255);
         }
 
-        Instantiate(boom, transform.position, Quaternion.identity);
+        Instantiate(boom, 
+            new Vector3(transform.position.x, transform.position.y, 5.2f), Quaternion.identity);
         Destroy(gameObject);
 
     }
